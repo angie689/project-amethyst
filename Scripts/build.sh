@@ -16,3 +16,8 @@ ditto "$app" "$stage/Payload/Amethyst.app" || { echo 'Failed to stage applicatio
 (cd "$stage" && /usr/bin/zip -qry Amethyst.ipa Payload) || { echo 'Failed to create IPA archive.' >&2; exit 1; }
 python3 Scripts/validate.py "$stage/Amethyst.ipa"
 mv "$stage/Amethyst.ipa" build/Amethyst.ipa
+bytes=$(stat -f %z build/Amethyst.ipa)
+echo "Validated unsigned IPA: $bytes bytes"
+if [[ -n "${GITHUB_STEP_SUMMARY:-}" ]]; then
+    echo "Validated unsigned IPA: $bytes bytes" >> "$GITHUB_STEP_SUMMARY"
+fi

@@ -4,10 +4,11 @@
       "id": "CVE-2023-41064",
       "category": "ImageIO \u00b7 Buffer overflow",
       "summary": "Apple documented a memory handling issue when processing an image.",
-      "scope": "Apple\u2019s iOS 16.6.1 advisory covers iPhone 8 and later. This catalog evaluates iOS 16 on the iPhone X and iPhone 11 families. Other branches are unassessed.",
+      "scope": "Apple\u2019s iOS 16.6.1 advisory covers iPhone 8 and later. This catalog evaluates iOS 16 on the iPhone X and iPhone 11 families. Other branches are unassessed. Reviewed release pairs are 16.6 (20G75) and 16.6.1 (20G81) on ARM64. A potential match is an advisory correlation only. Runtime vulnerability status is unverified.",
       "references": [
         "https://support.apple.com/en-us/HT213905",
-        "https://www.cve.org/CVERecord?id=CVE-2023-41064"
+        "https://www.cve.org/CVERecord?id=CVE-2023-41064",
+        "https://ipsw.me/16.6.1"
       ],
       "rules": [
         {
@@ -20,7 +21,11 @@
           ],
           "minimum": "16.0",
           "maximum": "16.6",
-          "verdict": "Potentially affected"
+          "verdict": "Potentially affected",
+          "architecture": "ARM64",
+          "releases": {
+            "16.6": "20G75"
+          }
         },
         {
           "devices": [
@@ -32,7 +37,11 @@
           ],
           "minimum": "16.6.1",
           "maximum": "16.7.99",
-          "verdict": "Documented fix"
+          "verdict": "Documented fix",
+          "architecture": "ARM64",
+          "releases": {
+            "16.6.1": "20G81"
+          }
         }
       ]
     },
@@ -40,10 +49,11 @@
       "id": "CVE-2023-41061",
       "category": "Wallet \u00b7 Validation",
       "summary": "Apple documented a validation issue when processing an attachment.",
-      "scope": "Apple\u2019s iOS 16.6.1 advisory covers iPhone 8 and later. This catalog evaluates iOS 16 on the iPhone X and iPhone 11 families. Other branches are unassessed.",
+      "scope": "Apple\u2019s iOS 16.6.1 advisory covers iPhone 8 and later. This catalog evaluates iOS 16 on the iPhone X and iPhone 11 families. Other branches are unassessed. Reviewed release pairs are 16.6 (20G75) and 16.6.1 (20G81) on ARM64. A potential match is an advisory correlation only. Runtime vulnerability status is unverified.",
       "references": [
         "https://support.apple.com/en-us/HT213905",
-        "https://www.cve.org/CVERecord?id=CVE-2023-41061"
+        "https://www.cve.org/CVERecord?id=CVE-2023-41061",
+        "https://ipsw.me/16.6.1"
       ],
       "rules": [
         {
@@ -56,7 +66,11 @@
           ],
           "minimum": "16.0",
           "maximum": "16.6",
-          "verdict": "Potentially affected"
+          "verdict": "Potentially affected",
+          "architecture": "ARM64",
+          "releases": {
+            "16.6": "20G75"
+          }
         },
         {
           "devices": [
@@ -68,7 +82,11 @@
           ],
           "minimum": "16.6.1",
           "maximum": "16.7.99",
-          "verdict": "Documented fix"
+          "verdict": "Documented fix",
+          "architecture": "ARM64",
+          "releases": {
+            "16.6.1": "20G81"
+          }
         }
       ]
     }

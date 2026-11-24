@@ -25,6 +25,8 @@ enum Verdict: String, Codable {
 }
 
 struct Rule: Decodable {
+    let architecture: String?
+    let releases: [String: String]?
     let devices: [String]
     let minimum: String?
     let maximum: String?
@@ -50,10 +52,14 @@ struct Entry: Identifiable, Decodable {
     let references: [URL]
     let rules: [Rule]
 
-    func assess(device: String, firmware: String, build: String?) -> Verdict {
+    func assess(device: String, firmware: String, build: String?, arch: String) -> Verdict {
         guard let version = Version(firmware), let build,
               build.range(of: #"^[0-9]+[A-Z][0-9]+$"#, options: .regularExpression) != nil else { return .unknown }
-        return rules.first { $0.matches(device, version) }?.verdict ?? .unknown
+        return rules.first { rule in
+            guard rule.matches(device, version), rule.architecture == nil || rule.architecture == arch else { return false }
+            if let releases = rule.releases { return releases[firmware] == build }
+            return true
+        }?.verdict ?? .unknown
     }
 }
 

@@ -24,6 +24,7 @@ struct Inspection {
     let build = systemString("kern.osversion")
     let sampled = Date()
     let fields: [Reading]
+    let arch: String
     let model: String
 
     init() {
@@ -38,6 +39,7 @@ struct Inspection {
         #else
         let architecture = "Other"
         #endif
+        arch = architecture
         let home = URL(fileURLWithPath: NSHomeDirectory())
         let disk = try? home.resourceValues(forKeys: [.volumeTotalCapacityKey, .volumeAvailableCapacityKey])
         let pressure = os_proc_available_memory()

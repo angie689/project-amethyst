@@ -10,14 +10,12 @@ jobs:
     runs-on: macos-15
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v4
-      - name: Test catalog and version assessments
-        run: |
-          swiftc Amethyst/Catalog.swift Tests/main.swift -o "$RUNNER_TEMP/amethyst-tests"
-          "$RUNNER_TEMP/amethyst-tests"
+      - uses: actions/checkout@v6
+      - name: Test assessments, import formats and native probes
+        run: Scripts/test.sh
       - name: Compile, package and validate device IPA
         run: Scripts/build.sh
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v6
         with:
           name: Amethyst-unsigned
           path: build/Amethyst.ipa
