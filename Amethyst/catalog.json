@@ -1,0 +1,142 @@
+{
+  "vulnerabilities": [
+    {
+      "id": "CVE-2023-41064",
+      "category": "ImageIO \u00b7 Buffer overflow",
+      "summary": "Apple documented a memory handling issue when processing an image.",
+      "scope": "Apple\u2019s iOS 16.6.1 advisory covers iPhone 8 and later. This catalog evaluates iOS 16 on the iPhone X and iPhone 11 families. Other branches are unassessed.",
+      "references": [
+        "https://support.apple.com/en-us/HT213905",
+        "https://www.cve.org/CVERecord?id=CVE-2023-41064"
+      ],
+      "rules": [
+        {
+          "devices": [
+            "iPhone12,1",
+            "iPhone12,3",
+            "iPhone12,5",
+            "iPhone10,3",
+            "iPhone10,6"
+          ],
+          "minimum": "16.0",
+          "maximum": "16.6",
+          "verdict": "Potentially affected"
+        },
+        {
+          "devices": [
+            "iPhone12,1",
+            "iPhone12,3",
+            "iPhone12,5",
+            "iPhone10,3",
+            "iPhone10,6"
+          ],
+          "minimum": "16.6.1",
+          "maximum": "16.7.99",
+          "verdict": "Documented fix"
+        }
+      ]
+    },
+    {
+      "id": "CVE-2023-41061",
+      "category": "Wallet \u00b7 Validation",
+      "summary": "Apple documented a validation issue when processing an attachment.",
+      "scope": "Apple\u2019s iOS 16.6.1 advisory covers iPhone 8 and later. This catalog evaluates iOS 16 on the iPhone X and iPhone 11 families. Other branches are unassessed.",
+      "references": [
+        "https://support.apple.com/en-us/HT213905",
+        "https://www.cve.org/CVERecord?id=CVE-2023-41061"
+      ],
+      "rules": [
+        {
+          "devices": [
+            "iPhone12,1",
+            "iPhone12,3",
+            "iPhone12,5",
+            "iPhone10,3",
+            "iPhone10,6"
+          ],
+          "minimum": "16.0",
+          "maximum": "16.6",
+          "verdict": "Potentially affected"
+        },
+        {
+          "devices": [
+            "iPhone12,1",
+            "iPhone12,3",
+            "iPhone12,5",
+            "iPhone10,3",
+            "iPhone10,6"
+          ],
+          "minimum": "16.6.1",
+          "maximum": "16.7.99",
+          "verdict": "Documented fix"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "Dopamine 2.1.7",
+      "category": "Release compatibility",
+      "summary": "Historical release assessment for the iPhone 11 family.",
+      "scope": "A13 on released iOS 15.0 through 16.5.1. Later releases of Dopamine have separate support policies.",
+      "references": [
+        "https://github.com/opa334/Dopamine/tree/2.1.7",
+        "https://ellekit.space/dopamine/"
+      ],
+      "rules": [
+        {
+          "devices": [
+            "iPhone12,1",
+            "iPhone12,3",
+            "iPhone12,5"
+          ],
+          "minimum": "15",
+          "maximum": "16.5.1",
+          "verdict": "Supported"
+        },
+        {
+          "devices": [
+            "iPhone12,1",
+            "iPhone12,3",
+            "iPhone12,5"
+          ],
+          "minimum": null,
+          "maximum": "14.99.99",
+          "verdict": "Unsupported"
+        },
+        {
+          "devices": [
+            "iPhone12,1",
+            "iPhone12,3",
+            "iPhone12,5"
+          ],
+          "minimum": "16.5.2",
+          "maximum": null,
+          "verdict": "Unsupported"
+        }
+      ]
+    },
+    {
+      "id": "palera1n",
+      "category": "Hardware compatibility",
+      "summary": "The project documents support for A8 through A11 devices.",
+      "scope": "A13 is outside the supported hardware range. Consult the official device chart for other models.",
+      "references": [
+        "https://palera.in/",
+        "https://github.com/palera1n/palera1n"
+      ],
+      "rules": [
+        {
+          "devices": [
+            "iPhone12,1",
+            "iPhone12,3",
+            "iPhone12,5"
+          ],
+          "minimum": null,
+          "maximum": null,
+          "verdict": "Unsupported"
+        }
+      ]
+    }
+  ]
+}
