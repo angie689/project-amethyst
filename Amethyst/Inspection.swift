@@ -50,6 +50,7 @@ struct Inspection {
                   Reading("Resident memory", Self.resident().map(Self.bytes)),
                   Reading("Volume capacity", disk?.volumeTotalCapacity.map { Self.bytes(Int64($0)) }),
                   Reading("Volume available", disk?.volumeAvailableCapacity.map { Self.bytes(Int64($0)) }),
+                  Reading("Protected app data", UIApplication.shared.isProtectedDataAvailable ? "Available" : "Unavailable"),
                   Reading("Kernel version", systemString("kern.version"))]
     }
 

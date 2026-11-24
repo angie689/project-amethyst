@@ -21,9 +21,14 @@ struct Comparison: View {
                         let before = previous.results.first { $0.probe == probe }
                         let after = latest.results.first { $0.probe == probe }
                         if before != nil || after != nil {
-                            DisclosureGroup(probe.rawValue) {
+                            DisclosureGroup {
                                 sample("Previous", before)
                                 sample("Latest", after)
+                            } label: {
+                                VStack(alignment: .leading, spacing: 3) {
+                                    Text(probe.rawValue)
+                                    Text(change(before, after)).foregroundColor(.secondary).font(.caption)
+                                }
                             }
                         }
                     }
@@ -35,6 +40,12 @@ struct Comparison: View {
                 }
             } else { Text("Run two assessments to compare their readings. The latest five are saved on this device.") }
         }.navigationTitle("Compare")
+    }
+
+    private func change(_ before: Observation?, _ after: Observation?) -> String {
+        guard let before, let after else { return before == nil ? "Only in latest run" : "Only in previous run" }
+        if before.state != after.state { return before.state.rawValue + " → " + after.state.rawValue }
+        return before.detail == after.detail && before.code == after.code ? "Unchanged" : "Reading changed"
     }
 
     private func sample(_ label: String, _ observation: Observation?) -> some View {

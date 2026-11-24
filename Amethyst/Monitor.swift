@@ -45,7 +45,9 @@ struct Monitor: View {
                 var path = Path()
                 let peak = max(values.max() ?? 1, 1)
                 for (i, value) in values.enumerated() {
-                    let point = CGPoint(x: size.width * CGFloat(i) / 29, y: (size.height - 2) * (1 - value / peak) + 1)
+                    let x = size.width * CGFloat(Double(i) / 29.0)
+                    let y = (size.height - 2) * CGFloat(1.0 - value / peak) + 1
+                    let point = CGPoint(x: x, y: y)
                     if i == 0 { path.move(to: point) } else { path.addLine(to: point) }
                 }
                 context.stroke(path, with: .color(color), lineWidth: 2)
